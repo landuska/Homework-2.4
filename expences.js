@@ -13,7 +13,7 @@ function expence(arrayExpences) {
     }
   }
   return sumValue;
-};
+}
 
 console.log(`Сумма затрат за 12 месяцев: ${expence(yearlyExpences)}`);
 
@@ -43,37 +43,49 @@ function testControl(arrayExpences, expectedValue) {
   } else {
     console.log("ошибка в рассчетах");
   }
-};
+}
 
 // создаем массив, который содержит ожидаемые результаты суммирования затрат
 let sumArray = [];
 for (let i = 0; i < expencesExamples.length; i++) {
   let temp = expence(expencesExamples[i].yearlyExpencesTest);
   sumArray.push(temp);
-};
+}
 
 // перебираем тестовые данные и проверяем корректность расчетов
 expencesExamples.forEach(function (currentvalue, i) {
   testControl(currentvalue.yearlyExpencesTest, sumArray[i]);
 });
 
-
-//  В массиве из предыдущего задания выведите название месяцев в которых затраты меньше либо равны 1000 
+//  В массиве из предыдущего задания выведите название месяцев в которых затраты меньше либо равны 1000
 let Date = [];
-let monthArray = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+let monthArray = [
+  "Январь",
+  "Февраль",
+  "Март",
+  "Апрель",
+  "Май",
+  "Июнь",
+  "Июль",
+  "Август",
+  "Сентябрь",
+  "Октябрь",
+  "Ноябрь",
+  "Декабрь",
+];
 
 // создаем массив объектов
-yearlyExpences.forEach (function(value, i){
-    Date[i] = {
-        monthNumber: String(i+1),
-        monthExpences: value
-    }
+yearlyExpences.forEach(function (value, i) {
+  Date[i] = {
+    monthNumber: String(i + 1),
+    monthExpences: value,
+  };
 });
 console.log(Date);
 
 // выводим названия месяцев
-Date.forEach (function(value, i){
-    if (value.monthExpences > 1000){
-        console.log (`Месяц: ${monthArray[i]} расход больше 1000`)
-    }
+Date.forEach(function (value, i) {
+  if (value.monthExpences > 1000) {
+    console.log(`Месяц: ${monthArray[i]} расход больше 1000`);
+  }
 });
