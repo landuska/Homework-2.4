@@ -54,5 +54,5 @@ for (let i = 0; i < expencesExamples.length; i++) {
 
 // перебираем тестовые данные и проверяем корректность расчетов
 expencesExamples.forEach(function (currentvalue, i) {
-  testControl(expencesExamples[i].yearlyExpencesTest, sumArray[i]);
+  testControl(currentvalue.yearlyExpencesTest, sumArray[i]);
 });
