@@ -1,6 +1,6 @@
 // массив расходов за 12 месяцев
 let yearlyExpences = [
-  1200, 250, 3320, 4563, 5560, 7839, 1200, 4200, 150, 530, 1100, 1400,
+  1200, 250, 3320, 450, 560, 7839, 1200, 420, 150, 530, 1100, 1400,
 ];
 
 //  функция, содержащая расчет суммы затрат, которые даны в массиве - в расчет берутся суммы только выше 1000
@@ -13,7 +13,7 @@ function expence(arrayExpences) {
     }
   }
   return sumValue;
-}
+};
 
 console.log(`Сумма затрат за 12 месяцев: ${expence(yearlyExpences)}`);
 
@@ -43,16 +43,37 @@ function testControl(arrayExpences, expectedValue) {
   } else {
     console.log("ошибка в рассчетах");
   }
-}
+};
 
 // создаем массив, который содержит ожидаемые результаты суммирования затрат
 let sumArray = [];
 for (let i = 0; i < expencesExamples.length; i++) {
   let temp = expence(expencesExamples[i].yearlyExpencesTest);
   sumArray.push(temp);
-}
+};
 
 // перебираем тестовые данные и проверяем корректность расчетов
 expencesExamples.forEach(function (currentvalue, i) {
   testControl(currentvalue.yearlyExpencesTest, sumArray[i]);
+});
+
+
+//  В массиве из предыдущего задания выведите название месяцев в которых затраты меньше либо равны 1000 
+let Date = [];
+let monthArray = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+
+// создаем массив объектов
+yearlyExpences.forEach (function(value, i){
+    Date[i] = {
+        monthNumber: String(i+1),
+        monthExpences: value
+    }
+});
+console.log(Date);
+
+// выводим названия месяцев
+Date.forEach (function(value, i){
+    if (value.monthExpences > 1000){
+        console.log (`Месяц: ${monthArray[i]} расход больше 1000`)
+    }
 });
